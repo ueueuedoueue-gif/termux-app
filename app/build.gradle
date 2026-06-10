@@ -33,7 +33,7 @@ android {
         buildConfig true
     }
 
-    // Evita warnings chatos no Java 21 do CI
+    // Evita warnings chatos de obsolescência de compilador no Java 21 do runner do GitHub Actions / CI
     tasks.withType(JavaCompile).configureEach {
         options.compilerArgs += ["-Xlint:-options"]
     }
@@ -44,6 +44,7 @@ dependencies {
     implementation project(':terminal-view')
     implementation project(':termux-shared')
 
-    // Shizuku (corrige erro de compilação)
+    // Dependências completas da API do Shizuku
     implementation "dev.rikka.shizuku:api:13.1.5"
+    implementation "dev.rikka.shizuku:provider:13.1.5"
 }
